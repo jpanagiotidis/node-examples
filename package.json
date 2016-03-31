@@ -1,0 +1,22 @@
+{
+  "name": "node-examples",
+  "version": "0.0.1",
+  "description": "NodeJS examples",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jpanagiotidis/node-examples.git"
+  },
+  "keywords": [
+    "NodeJS"
+  ],
+  "author": "jpanagiotidis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpanagiotidis/node-examples/issues"
+  },
+  "homepage": "https://github.com/jpanagiotidis/node-examples#readme"
+}
