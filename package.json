@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "node server-transpilation.js && node build/app.js",
-    "dev": "NODE_ENV=dev node server-polyfill.js",
+    "dev": "node server-polyfill.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

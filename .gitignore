@@ -5,3 +5,4 @@ npm-debug.log
 
 .gitignore
 build/*
+source/config/local.js
