@@ -4,6 +4,7 @@
   "description": "NodeJS examples",
   "main": "index.js",
   "dependencies": {
+    "aws-sdk": "^2.3.3",
     "babel-core": "6.7.2",
     "babel-plugin-syntax-async-functions": "6.5.0",
     "babel-plugin-transform-async-to-module-method": "6.7.0",

@@ -17,7 +17,7 @@ if( /(prod|production)/gi.test( process.env.NODE_ENV ) ){
 
 if (env) {
   if (fs.existsSync(path.resolve(`${__dirname}/${env}.js`))) {
-    envConfigs = require(`./${env}`);
+    envConfigs = require(`./${env}`).default;
   }
 }
 
