@@ -31,3 +31,7 @@ export async function uploadFiles(options, file_paths){
     throw e;
   }
 }
+
+export async function createLambdaFunction(){
+  console.log('LAMBDA');
+}
