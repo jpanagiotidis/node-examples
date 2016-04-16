@@ -14,7 +14,7 @@ const test_bucket = "moufa";
 console.log('AWS EXAMPLES');
 console.log(config);
 
-s3ExampleB()
+createDummyBucketAndContents()
 .then((res) => {
   console.log(res);
 })
