@@ -3,18 +3,6 @@
 import _ from 'underscore';
 import {createReadStream} from 'fs';
 
-export async function deleteBucket(bucket_name){
-  try {
-    const s3 = new aws.S3();
-    console.log(bucket_name);
-    const res = await s3.deleteBucket({
-      "Bucket": bucket_name
-    }).promise();
-  } catch (e) {
-    throw e;
-  }
-}
-
 export async function uploadFile(s3, file_path, options){
   try {
     options.Body = createReadStream(file_path);
