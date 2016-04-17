@@ -41,10 +41,9 @@ async function lambdaTests(){
     const list = await lambda.listFunctions().promise();
     console.log(list);
     const res = await lambda.invoke({
-      "FunctionName": "hello-node",
+      "FunctionName": "fetch-url",
       "Payload": JSON.stringify({
-        "val_a": 11111,
-        "val_b": 2222
+        "url": "https://www.cnn.com"
       })
     }).promise();
     console.log(res);
