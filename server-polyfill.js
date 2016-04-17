@@ -5,6 +5,6 @@ require("babel-core/register")({
 });
 
 console.log(process.argv);
-const codePath  = process.argv[2] ? process.argv[2] : "source/app.js";
+const codePath  = process.argv[2] ? process.argv[2] : "app.js";
 
 require(`./source/${codePath}`);

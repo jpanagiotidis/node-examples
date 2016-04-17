@@ -14,14 +14,15 @@ const test_bucket = "moufa";
 console.log('AWS EXAMPLES');
 console.log(config);
 
-createDummyBucketAndContents()
-.then((res) => {
-  console.log(res);
-})
-.catch((err) => {
-  console.log(err);
-  console.log(err.stack);
-});
+
+// createDummyBucketAndContents()
+// .then((res) => {
+//   console.log(res);
+// })
+// .catch((err) => {
+//   console.log(err);
+//   console.log(err.stack);
+// });
 
 function init(){
   aws.config.update(_.defaults(
