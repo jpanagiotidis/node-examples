@@ -15,14 +15,14 @@ console.log('AWS EXAMPLES');
 console.log(config);
 
 
-// createDummyBucketAndContents()
-// .then((res) => {
-//   console.log(res);
-// })
-// .catch((err) => {
-//   console.log(err);
-//   console.log(err.stack);
-// });
+lambdaTests()
+.then((res) => {
+  console.log('FIN', res);
+})
+.catch((err) => {
+  console.log(err);
+  console.log(err.stack);
+});
 
 function init(){
   aws.config.update(_.defaults(
@@ -30,8 +30,27 @@ function init(){
       "region": "eu-west-1",
       "signatureVersion": "v4"
     },
-    config.aws.users.jon
+    config.aws.users.admin
   ));
+}
+
+async function lambdaTests(){
+  try {
+    init();
+    const lambda = new aws.Lambda();
+    const list = await lambda.listFunctions().promise();
+    console.log(list);
+    const res = await lambda.invoke({
+      "FunctionName": "hello-node",
+      "Payload": JSON.stringify({
+        "val_a": 11111,
+        "val_b": 2222
+      })
+    }).promise();
+    console.log(res);
+  } catch (e) {
+    throw e;
+  }
 }
 
 async function createDummyBucketAndContents(){
