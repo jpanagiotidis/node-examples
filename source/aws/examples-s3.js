@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 import _ from 'underscore';
 import aws from 'aws-sdk';
@@ -11,11 +11,10 @@ import {
 
 const test_bucket = "moufa";
 
-console.log('AWS EXAMPLES');
+console.log('AWS S3 EXAMPLES');
 console.log(config);
 
-
-lambdaTests()
+createDummyBucketAndContents()
 .then((res) => {
   console.log('FIN', res);
 })
@@ -32,24 +31,6 @@ function init(){
     },
     config.aws.users.admin
   ));
-}
-
-async function lambdaTests(){
-  try {
-    init();
-    const lambda = new aws.Lambda();
-    const list = await lambda.listFunctions().promise();
-    console.log(list);
-    const res = await lambda.invoke({
-      "FunctionName": "fetch-url",
-      "Payload": JSON.stringify({
-        "url": "https://www.cnn.com"
-      })
-    }).promise();
-    console.log(res);
-  } catch (e) {
-    throw e;
-  }
 }
 
 async function createDummyBucketAndContents(){
