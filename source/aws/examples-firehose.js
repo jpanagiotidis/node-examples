@@ -4,7 +4,7 @@ import _ from 'underscore';
 import aws from 'aws-sdk';
 import Chance from 'chance';
 import config from '../config';
-import {sleep} from '../utils'
+import { sleep } from '../utils';
 
 console.log('AWS FIREHOSE EXAMPLES');
 
