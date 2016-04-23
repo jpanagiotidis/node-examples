@@ -43,10 +43,16 @@ async function sqsConsumer(){
       }).promise();
       // console.log(mesRes);
       if(mesRes.Messages && _.isArray(mesRes.Messages)){
+        console.log(mesRes);
         for (let i = 0; i < mesRes.Messages.length; i++) {
           const msg = mesRes.Messages[i];
           console.log('CONSUMED: ID', msg.MessageId, 'BODY:', msg.Body);
-          // await
+
+          const delRes = await sqs.deleteMessage({
+            "QueueUrl": res.QueueUrl,
+            "ReceiptHandle": msg.ReceiptHandle
+          }).promise();
+          console.log(delRes);
         }
       }
     } while (true);

@@ -9,8 +9,7 @@ import { sleep } from '../utils';
 console.log('AWS SQS EXAMPLE PRODUCER');
 console.log(config);
 
-// sqsProducer()
-sqsConsumer()
+sqsProducer()
 .then((res) => {
   console.log('FIN', res);
 })
@@ -39,35 +38,15 @@ async function sqsProducer(){
     }).promise();
     console.log(res.QueueUrl);
 
+    let counter = 0;
     do {
       const mesRes = await sqs.sendMessage({
-        "MessageBody": "ASDASDASD",
+        "MessageBody": `${++counter}: ${chance.sentence()}`,
         "QueueUrl": res.QueueUrl
       }).promise();
       console.log(mesRes);
+      await sleep(1000);
     } while (true);
-    // const queueURL = await sqs.getQueueUrl({
-    //   "QueueName": "TestQ"
-    // }).promise();
-    // console.log(queueURL.QueueUrl);
-  } catch (e) {
-    throw e;
-  }
-}
-
-async function sqsConsumer(){
-  try {
-    init();
-    const sqs = new aws.SQS();
-    const res = await sqs.createQueue({
-      "QueueName": "TestQ"
-    }).promise();
-    console.log(res.QueueUrl);
-
-    const mesRes = await sqs.receiveMessage({
-      "QueueUrl": res.QueueUrl
-    }).promise();
-    console.log(mesRes);
   } catch (e) {
     throw e;
   }
